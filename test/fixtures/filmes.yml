@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  titulo: MyString
+  titulorg: MyString
+  ano: 2014-05-06
+  diretor_id: 1
+  roteiro: 1
+  cor: false
+  genero_id: 1
+  data: 1
+  midia_id: 
+  pais_id: 1
+
+two:
+  titulo: MyString
+  titulorg: MyString
+  ano: 2014-05-06
+  diretor_id: 1
+  roteiro: 1
+  cor: false
+  genero_id: 1
+  data: 1
+  midia_id: 
+  pais_id: 1

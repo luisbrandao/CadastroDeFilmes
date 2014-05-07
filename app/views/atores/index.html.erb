@@ -1,0 +1,23 @@
+<h1>Listing atores</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @atores.each do |ator| %>
+  <tr>
+    <td><%= ator.nome %></td>
+    <td><%= link_to 'Show', ator %></td>
+    <td><%= link_to 'Edit', edit_ator_path(ator) %></td>
+    <td><%= link_to 'Destroy', ator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Ator', new_ator_path %>

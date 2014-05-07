@@ -1,0 +1,57 @@
+<%= form_for(@filme) do |f| %>
+  <% if @filme.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@filme.errors.count, "error") %> prohibited this filme from being saved:</h2>
+
+      <ul>
+      <% @filme.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :titulo %><br />
+    <%= f.text_field :titulo %>
+  </div>
+  <div class="field">
+    <%= f.label :titulorg %><br />
+    <%= f.text_field :titulorg %>
+  </div>
+  <div class="field">
+    <%= f.label :ano %><br />
+    <%= f.date_select :ano %>
+  </div>
+  <div class="field">
+    <%= f.label :diretor_id %><br />
+    <%= f.number_field :diretor_id %>
+  </div>
+  <div class="field">
+    <%= f.label :roteiro %><br />
+    <%= f.number_field :roteiro %>
+  </div>
+  <div class="field">
+    <%= f.label :cor %><br />
+    <%= f.check_box :cor %>
+  </div>
+  <div class="field">
+    <%= f.label :genero_id %><br />
+    <%= f.number_field :genero_id %>
+  </div>
+  <div class="field">
+    <%= f.label :data %><br />
+    <%= f.number_field :data %>
+  </div>
+  <div class="field">
+    <%= f.label :midia_id %><br />
+    <%= f.text_field :midia_id %>
+  </div>
+  <div class="field">
+    <%= f.label :pais_id %><br />
+    <%= f.number_field :pais_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
