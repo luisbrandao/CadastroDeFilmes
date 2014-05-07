@@ -1,7 +1,7 @@
 class CreateAtoresFilmesJoinTable < ActiveRecord::Migration
   def up
     create_table :atores_filmes, :id => false do |t|
-      t.references :ator, filme
+      t.references :ator, :filme
     end
   end
 
