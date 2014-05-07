@@ -2,6 +2,8 @@
 
 one:
   nome: MyString
+  sexo: 1
 
 two:
   nome: MyString
+  sexo: 1

@@ -3,6 +3,7 @@
 <table>
   <tr>
     <th>Nome</th>
+    <th>Sexo</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,6 +12,7 @@
 <% @atores.each do |ator| %>
   <tr>
     <td><%= ator.nome %></td>
+    <td><%= ator.sexo %></td>
     <td><%= link_to 'Show', ator %></td>
     <td><%= link_to 'Edit', edit_ator_path(ator) %></td>
     <td><%= link_to 'Destroy', ator, method: :delete, data: { confirm: 'Are you sure?' } %></td>

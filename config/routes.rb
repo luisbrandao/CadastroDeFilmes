@@ -1,4 +1,7 @@
 CadastroDeFilmes::Application.routes.draw do
+  resources :atores
+
+
   resources :filmes
 
 
@@ -12,9 +15,6 @@ CadastroDeFilmes::Application.routes.draw do
 
 
   resources :diretores
-
-
-  resources :atores
 
 
   # The priority is based upon order of creation:

@@ -18,7 +18,7 @@ class AtoresControllerTest < ActionController::TestCase
 
   test "should create ator" do
     assert_difference('Ator.count') do
-      post :create, ator: { nome: @ator.nome }
+      post :create, ator: { nome: @ator.nome, sexo: @ator.sexo }
     end
 
     assert_redirected_to ator_path(assigns(:ator))
@@ -35,7 +35,7 @@ class AtoresControllerTest < ActionController::TestCase
   end
 
   test "should update ator" do
-    put :update, id: @ator, ator: { nome: @ator.nome }
+    put :update, id: @ator, ator: { nome: @ator.nome, sexo: @ator.sexo }
     assert_redirected_to ator_path(assigns(:ator))
   end
 
