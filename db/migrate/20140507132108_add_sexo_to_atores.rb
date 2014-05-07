@@ -1,6 +1,6 @@
 class AddSexoToAtores < ActiveRecord::Migration
   def change
-    add_column :atores, :sexo, :atores, :default => 1
+    add_column :atores, :sexo, :integer, :default => 1
   end
 
   def down

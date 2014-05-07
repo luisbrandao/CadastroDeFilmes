@@ -13,8 +13,12 @@
 
 ActiveRecord::Schema.define(:version => 20140507134715) do
 
-# Could not dump table "atores" because of following StandardError
-#   Unknown type 'atores' for column 'sexo'
+  create_table "atores", :force => true do |t|
+    t.string   "nome"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "sexo",       :default => 1
+  end
 
   create_table "atores_filmes", :id => false, :force => true do |t|
     t.integer "ator_id"
