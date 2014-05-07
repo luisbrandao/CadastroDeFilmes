@@ -1,8 +1,8 @@
 CadastroDeFilmes::Application.routes.draw do
-  resources :midias
-
-
   resources :filmes
+
+
+  resources :midias
 
 
   resources :paises

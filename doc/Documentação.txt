@@ -4,13 +4,14 @@ rails generate scaffold diretores nome:string
 rails generate scaffold genero nome:string
 rails generate scaffold midia nome:string
 rails generate scaffold pais nome:string
-rails generate scaffold filmes titulo:string titulorg:string ano:date diretor_id:integer roteiro:integer cor:boolean genero_id:integer data:integer midia_id:integercotacao:integer pais_id:integer
+rails generate scaffold filmes titulo:string titulorg:string ano:date diretor_id:integer roteiro:integer cor:boolean genero_id:integer data:integer midia_id:integer cotacao:integer pais_id:integer
 
 rails generate migration create_atores_filmes_join_table
 
 # Comandos de destruição
 rails destroy scaffold atores
 rails destroy scaffold midia
+rails destroy scaffold filmes
 
 # Comandos de adição
 rails generate migration add_sexo_to_atores sexo:integer

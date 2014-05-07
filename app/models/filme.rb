@@ -8,6 +8,5 @@ class Filme < ActiveRecord::Base
   has_many :roteiristas, class_name: "Diretor", foreign_key: "roteiro"
 
 
-  attr_accessible :ano, :cor, :data, :diretor_id, :genero_id, :midia_id, :pais_id, :roteiro, :titulo, :titulorg
-
+  attr_accessible :ano, :cor, :cotacao, :data, :diretor_id, :genero_id, :midia_id, :pais_id, :roteiro, :titulo, :titulorg
 end

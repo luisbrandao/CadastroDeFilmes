@@ -18,7 +18,7 @@ class FilmesControllerTest < ActionController::TestCase
 
   test "should create filme" do
     assert_difference('Filme.count') do
-      post :create, filme: { ano: @filme.ano, cor: @filme.cor, data: @filme.data, diretor_id: @filme.diretor_id, genero_id: @filme.genero_id, midia_id: @filme.midia_id, pais_id: @filme.pais_id, roteiro: @filme.roteiro, titulo: @filme.titulo, titulorg: @filme.titulorg }
+      post :create, filme: { ano: @filme.ano, cor: @filme.cor, cotacao: @filme.cotacao, data: @filme.data, diretor_id: @filme.diretor_id, genero_id: @filme.genero_id, midia_id: @filme.midia_id, pais_id: @filme.pais_id, roteiro: @filme.roteiro, titulo: @filme.titulo, titulorg: @filme.titulorg }
     end
 
     assert_redirected_to filme_path(assigns(:filme))
@@ -35,7 +35,7 @@ class FilmesControllerTest < ActionController::TestCase
   end
 
   test "should update filme" do
-    put :update, id: @filme, filme: { ano: @filme.ano, cor: @filme.cor, data: @filme.data, diretor_id: @filme.diretor_id, genero_id: @filme.genero_id, midia_id: @filme.midia_id, pais_id: @filme.pais_id, roteiro: @filme.roteiro, titulo: @filme.titulo, titulorg: @filme.titulorg }
+    put :update, id: @filme, filme: { ano: @filme.ano, cor: @filme.cor, cotacao: @filme.cotacao, data: @filme.data, diretor_id: @filme.diretor_id, genero_id: @filme.genero_id, midia_id: @filme.midia_id, pais_id: @filme.pais_id, roteiro: @filme.roteiro, titulo: @filme.titulo, titulorg: @filme.titulorg }
     assert_redirected_to filme_path(assigns(:filme))
   end
 

@@ -9,7 +9,8 @@ class CreateFilmes < ActiveRecord::Migration
       t.boolean :cor
       t.integer :genero_id
       t.integer :data
-      t.integercotacao :midia_id
+      t.integer :midia_id
+      t.integer :cotacao
       t.integer :pais_id
 
       t.timestamps
