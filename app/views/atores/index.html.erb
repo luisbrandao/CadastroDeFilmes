@@ -1,4 +1,4 @@
-<h1>Listing atores</h1>
+<h1>Listando atores</h1>
 
 <table>
   <tr>
@@ -12,14 +12,14 @@
 <% @atores.each do |ator| %>
   <tr>
     <td><%= ator.nome %></td>
-    <td><%= ator.sexo %></td>
-    <td><%= link_to 'Show', ator %></td>
-    <td><%= link_to 'Edit', edit_ator_path(ator) %></td>
-    <td><%= link_to 'Destroy', ator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= ator.sexo_txt %></td>
+    <td><%= link_to 'Mostrar', ator %></td>
+    <td><%= link_to 'Editar', edit_ator_path(ator) %></td>
+    <td><%= link_to 'Apagar', ator, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Ator', new_ator_path %>
+<%= link_to 'Novo ator', new_ator_path %>
