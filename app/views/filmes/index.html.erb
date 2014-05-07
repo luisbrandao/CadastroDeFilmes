@@ -2,18 +2,16 @@
 
 <table>
   <tr>
-    <th>Titulo</th>
-    <th>Titulorg</th>
-    <th>Anof</th>
+    <th>Título</th>
+    <th>Título Original</th>
+    <th>Ano do filme</th>
     <th>Cor</th>
     <th>Genero</th>
-    <th>Dataa</th>
-    <th>Anoa</th>
-    <th>Midia</th>
-    <th>Cotacao</th>
-    <th>Pais</th>
-    <th></th>
-    <th></th>
+    <th>Data Assistencia</th>
+    <th>Ano Assistencia</th>
+    <th>Mídia</th>
+    <th>Cotação</th>
+    <th>País</th>
     <th></th>
   </tr>
 
@@ -23,15 +21,15 @@
     <td><%= filme.titulorg %></td>
     <td><%= filme.anoF %></td>
     <td><%= filme.cor %></td>
-    <td><%= filme.genero_id %></td>
-    <td><%= filme.dataA %></td>
+    <td><%= filme.genero.try(:nome) %></td>
+    <td><%= filme.dataA ? filme.dataA.strftime("%d/%m/%Y") : nil %></td>
     <td><%= filme.anoA %></td>
-    <td><%= filme.midia_id %></td>
+    <td><%= filme.midia.try(:nome) %></td>
     <td><%= filme.cotacao %></td>
-    <td><%= filme.pais_id %></td>
-    <td><%= link_to 'Show', filme %></td>
-    <td><%= link_to 'Edit', edit_filme_path(filme) %></td>
-    <td><%= link_to 'Destroy', filme, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= filme.pais.try(:nome) %></td>
+    <td><%= link_to 'Mostrar', filme %>
+    <%= link_to 'Editar', edit_filme_path(filme) %>
+    <%= link_to 'Apagar', filme, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
   </tr>
 <% end %>
 </table>

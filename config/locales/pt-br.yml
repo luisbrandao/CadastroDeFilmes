@@ -5,6 +5,9 @@ pt-BR:
   Show: Mostrar
   Edit: Editar
   New: novo
+
+  true: Sim
+  false: Não
   date:
     abbr_day_names:
     - Dom

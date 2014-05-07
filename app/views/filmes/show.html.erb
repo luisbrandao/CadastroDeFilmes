@@ -1,17 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Titulo:</b>
+  <b>ID:</b>
+  <%= @filme.id %>
+</p>
+
+<p>
+  <b>Título:</b>
   <%= @filme.titulo %>
 </p>
 
 <p>
-  <b>Titulorg:</b>
+  <b>Título Original:</b>
   <%= @filme.titulorg %>
 </p>
 
 <p>
-  <b>Anof:</b>
+  <b>Ano do filme:</b>
   <%= @filme.anoF %>
 </p>
 
@@ -22,34 +27,34 @@
 
 <p>
   <b>Genero:</b>
-  <%= @filme.genero_id %>
+  <%= @filme.genero.try(:nome) %>
 </p>
 
 <p>
-  <b>Dataa:</b>
-  <%= @filme.dataA %>
+  <b>Data de assistencia:</b>
+  <%= @filme.dataA ? @filme.dataA.strftime("%d/%m/%Y") : nil %>
 </p>
 
 <p>
-  <b>Anoa:</b>
+  <b>Ano de assistencia:</b>
   <%= @filme.anoA %>
 </p>
 
 <p>
-  <b>Midia:</b>
-  <%= @filme.midia_id %>
+  <b>Mídia:</b>
+  <%= @filme.midia.try(:nome) %>
 </p>
 
 <p>
-  <b>Cotacao:</b>
+  <b>Cotação:</b>
   <%= @filme.cotacao %>
 </p>
 
 <p>
-  <b>Pais:</b>
-  <%= @filme.pais_id %>
+  <b>Papis:</b>
+  <%= @filme.pais.try(:nome) %>
 </p>
 
 
-<%= link_to 'Edit', edit_filme_path(@filme) %> |
-<%= link_to 'Back', filmes_path %>
+<%= link_to 'Editar', edit_filme_path(@filme) %> |
+<%= link_to 'Voltar', filmes_path %>

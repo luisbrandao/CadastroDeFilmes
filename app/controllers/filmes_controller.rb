@@ -25,6 +25,8 @@ class FilmesController < ApplicationController
   # GET /filmes/new.json
   def new
     @filme = Filme.new
+    @diretor = Diretor.order('nome')
+    @ator = Ator.order('nome')
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,12 +37,16 @@ class FilmesController < ApplicationController
   # GET /filmes/1/edit
   def edit
     @filme = Filme.find(params[:id])
+    @diretor = Diretor.order('nome')
+    @ator = Ator.order('nome')
   end
 
   # POST /filmes
   # POST /filmes.json
   def create
     @filme = Filme.new(params[:filme])
+    @diretor = Diretor.order('nome')
+    @ator = Ator.order('nome')
 
     respond_to do |format|
       if @filme.save

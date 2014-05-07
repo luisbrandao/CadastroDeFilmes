@@ -1,7 +1,7 @@
 <%= form_for(@filme) do |f| %>
   <% if @filme.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@filme.errors.count, "error") %> prohibited this filme from being saved:</h2>
+      <h2><%= pluralize(@filme.errors.count, "error") %> Não foi possivel salvar o filme:</h2>
 
       <ul>
       <% @filme.errors.full_messages.each do |msg| %>
@@ -16,40 +16,59 @@
     <%= f.text_field :titulo %>
   </div>
   <div class="field">
-    <%= f.label :titulorg %><br />
+    <%= f.label :titulorg, "Titulo Original" %><br />
     <%= f.text_field :titulorg %>
   </div>
+
+  <%= hidden_field_tag 'filme[ator_ids][]', '' %>
+  <%= f.label :atores, "Atores" %><br />
+  <% @ator.each do |ator| %>
+    <div>
+      <%= check_box_tag "filme[ator_ids][]", ator.id, @filme.atores.include?(ator) %>
+      <%= ator.nome %>
+    </div>
+  <% end %>
+
+  <%= hidden_field_tag 'filme[diretor_ids][]', '' %>
+  <%= f.label :diretores, "Diretores" %><br />
+  <% @diretor.each do |diretor| %>
+    <div>
+      <%= check_box_tag "filme[diretor_ids][]", diretor.id, @filme.diretores.include?(diretor) %>
+      <%= diretor.nome %>
+    </div>
+  <% end %>
+
   <div class="field">
-    <%= f.label :anoF %><br />
-    <%= f.number_field :anoF %>
+    <%= f.label :anoF, "Ano de Realização" %><br />
+    <%= f.number_field :anoF, :value => "2014" %>
   </div>
   <div class="field">
     <%= f.label :cor %><br />
     <%= f.check_box :cor %>
   </div>
   <div class="field">
-    <%= f.label :genero_id %><br />
-    <%= f.number_field :genero_id %>
+    <%= f.label :genero_id, "Genero" %><br />
+    <%= collection_select(:filme, :genero_id, Genero.order('nome'), :id, :nome, { :prompt => "Selecione um genero" } ) %>
   </div>
   <div class="field">
-    <%= f.label :dataA %><br />
-    <%= f.date_select :dataA %>
+    <%= f.label :dataA, "Data de assistencia" %><br />
+    <%= f.text_field :dataA, :class => "search-field" %>
   </div>
   <div class="field">
-    <%= f.label :anoA %><br />
-    <%= f.number_field :anoA %>
+    <%= f.label :anoA, "Ano de assistencia" %><br />
+    <%= f.number_field :anoA, :value => Time.now.year %>
   </div>
   <div class="field">
-    <%= f.label :midia_id %><br />
-    <%= f.number_field :midia_id %>
+    <%= f.label :midia_id, "Mídia" %><br />
+    <%= collection_select(:filme, :midia_id, Midia.order('nome'), :id, :nome, { :prompt => "Selecione a mídia " } ) %>
   </div>
   <div class="field">
     <%= f.label :cotacao %><br />
     <%= f.number_field :cotacao %>
   </div>
   <div class="field">
-    <%= f.label :pais_id %><br />
-    <%= f.number_field :pais_id %>
+    <%= f.label :pais_id, "País" %><br />
+    <%= collection_select(:filme, :pais_id, Pais.order('nome'), :id, :nome, { :prompt => "Selecione o pais " } ) %>
   </div>
   <div class="actions">
     <%= f.submit %>
