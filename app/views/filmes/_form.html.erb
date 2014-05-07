@@ -20,8 +20,8 @@
     <%= f.text_field :titulorg %>
   </div>
   <div class="field">
-    <%= f.label :ano %><br />
-    <%= f.date_select :ano %>
+    <%= f.label :anoF %><br />
+    <%= f.number_field :anoF %>
   </div>
   <div class="field">
     <%= f.label :diretor_id %><br />
@@ -40,8 +40,12 @@
     <%= f.number_field :genero_id %>
   </div>
   <div class="field">
-    <%= f.label :data %><br />
-    <%= f.number_field :data %>
+    <%= f.label :anoA %><br />
+    <%= f.number_field :anoA %>
+  </div>
+  <div class="field">
+    <%= f.label :dataA %><br />
+    <%= f.date_select :dataA %>
   </div>
   <div class="field">
     <%= f.label :midia_id %><br />
