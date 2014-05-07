@@ -3,13 +3,10 @@
 one:
   titulo: MyString
   titulorg: MyString
-  anoF: 1
-  diretor_id: 1
-  roteiro: 1
+  ano: 2014-05-07
   cor: false
   genero_id: 1
-  anoA: 1
-  dataA: 2014-05-07
+  data: 1
   midia_id: 1
   cotacao: 1
   pais_id: 1
@@ -17,13 +14,10 @@ one:
 two:
   titulo: MyString
   titulorg: MyString
-  anoF: 1
-  diretor_id: 1
-  roteiro: 1
+  ano: 2014-05-07
   cor: false
   genero_id: 1
-  anoA: 1
-  dataA: 2014-05-07
+  data: 1
   midia_id: 1
   cotacao: 1
   pais_id: 1

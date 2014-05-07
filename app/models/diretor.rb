@@ -1,5 +1,5 @@
 class Diretor < ActiveRecord::Base
-  attr_accessible :nome
+  has_and_belongs_to_many :filmes, :join_table => "diretores_filmes"
 
-  has_many :filmes
+  attr_accessible :nome
 end

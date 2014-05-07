@@ -5,6 +5,7 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'diretor', 'diretores'
   inflect.irregular 'pais', 'paises'
   inflect.irregular 'midia', 'midias'
+  inflect.irregular 'roteirista', 'roteiristas'
 end
 
 # Add new inflection rules using the following format

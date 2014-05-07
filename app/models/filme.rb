@@ -1,12 +1,11 @@
 class Filme < ActiveRecord::Base
   has_and_belongs_to_many :atores, :join_table => "atores_filmes"
+  has_and_belongs_to_many :diretores, :join_table => "diretores_filmes"
+  has_and_belongs_to_many :roteiristas, :join_table => "roteiristas_filmes"
 
   belongs_to :genero
   belongs_to :midia
   belongs_to :pais
-  belongs_to :diretor, class_name: "Diretor"
-  has_many :roteiristas, class_name: "Diretor", foreign_key: "roteiro"
 
-
-  attr_accessible :anoA, :anoF, :cor, :cotacao, :dataA, :diretor_id, :genero_id, :midia_id, :pais_id, :roteiro, :titulo, :titulorg
+  attr_accessible :ano, :cor, :cotacao, :data, :genero_id, :midia_id, :pais_id, :titulo, :titulorg
 end

@@ -112,3 +112,15 @@ Genero.create(:id => 24, :nome => "Suspense")
 Genero.create(:id => 25, :nome => "Terror")
 Genero.create(:id => 26, :nome => "Tribunal")
 Genero.create(:id => 27, :nome => "Western")
+
+Ator.create(:id => 1, :nome => "Eric Bana", :sexo => "1")
+Ator.create(:id => 2, :nome => "Jennifer Connelly", :sexo => "2")
+Ator.create(:id => 3, :nome => "Nick Nolte", :sexo => "1")
+
+Diretor.create(:id => 1, :nome => "Bryan Singer")
+Diretor.create(:id => 2, :nome => "John Frankenheimer")
+Diretor.create(:id => 3, :nome => "Quentin Tarantino")
+
+Roteirista.create(:id => 1, :nome => "Nick Cave")
+Roteirista.create(:id => 2, :nome => "Jonathan Nolan")
+Roteirista.create(:id => 3, :nome => "Neal Purvis")

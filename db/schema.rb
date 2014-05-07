@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140507142015) do
+ActiveRecord::Schema.define(:version => 20140507153025) do
 
   create_table "atores", :force => true do |t|
     t.string   "nome"
@@ -25,6 +25,11 @@ ActiveRecord::Schema.define(:version => 20140507142015) do
     t.integer "filme_id"
   end
 
+  create_table "diretor_filmes", :id => false, :force => true do |t|
+    t.integer "diretor_id"
+    t.integer "filme_id"
+  end
+
   create_table "diretores", :force => true do |t|
     t.string   "nome"
     t.datetime "created_at", :null => false
@@ -35,8 +40,6 @@ ActiveRecord::Schema.define(:version => 20140507142015) do
     t.string   "titulo"
     t.string   "titulorg"
     t.date     "ano"
-    t.integer  "diretor_id"
-    t.integer  "roteiro"
     t.boolean  "cor"
     t.integer  "genero_id"
     t.integer  "data"
@@ -63,6 +66,17 @@ ActiveRecord::Schema.define(:version => 20140507142015) do
     t.string   "nome"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "roteiristas", :force => true do |t|
+    t.string   "nome"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "roteiristas_filmes", :id => false, :force => true do |t|
+    t.integer "roteirista_id"
+    t.integer "filme_id"
   end
 
 end

@@ -1,4 +1,7 @@
 CadastroDeFilmes::Application.routes.draw do
+  resources :roteiristas
+
+
   resources :filmes
 
 

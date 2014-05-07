@@ -1,0 +1,23 @@
+<h1>Listing roteiristas</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @roteiristas.each do |roteirista| %>
+  <tr>
+    <td><%= roteirista.nome %></td>
+    <td><%= link_to 'Show', roteirista %></td>
+    <td><%= link_to 'Edit', edit_roteirista_path(roteirista) %></td>
+    <td><%= link_to 'Destroy', roteirista, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Roteirista', new_roteirista_path %>
