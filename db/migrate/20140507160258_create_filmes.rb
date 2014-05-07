@@ -3,10 +3,11 @@ class CreateFilmes < ActiveRecord::Migration
     create_table :filmes do |t|
       t.string :titulo
       t.string :titulorg
-      t.date :ano
+      t.integer :anoF
       t.boolean :cor
       t.integer :genero_id
-      t.integer :data
+      t.date :dataA
+      t.integer :anoA
       t.integer :midia_id
       t.integer :cotacao
       t.integer :pais_id
