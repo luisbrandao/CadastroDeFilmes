@@ -1,0 +1,25 @@
+# comandos de criação
+rails generate scaffold atores nome:string
+rails generate scaffold diretores nome:string
+rails generate scaffold genero nome:string
+rails generate scaffold midia nome:string
+rails generate scaffold pais nome:string
+rails generate scaffold filmes titulo:string titulorg:string ano:date diretor_id:integer roteiro:integer cor:boolean genero_id:integer data:integer midia_id:integercotacao:integer pais_id:integer
+
+rails generate migration create_atores_filmes_join_table
+
+# Comandos de destruição
+rails destroy scaffold atores
+rails destroy scaffold midia
+
+# Comandos de adição
+rails generate migration add_sexo_to_atores sexo:integer
+
+# Plural não regular:
+<app>/config/initializers/inflections.rb
+  ActiveSupport::Inflector.inflections do |inflect|
+    inflect.irregular 'ator', 'atores'
+    inflect.irregular 'diretor', 'diretores'
+    inflect.irregular 'pais', 'paises'
+    inflect.irregular 'midia', 'midias'
+  end
