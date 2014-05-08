@@ -1,3 +1,4 @@
+#encoding: utf-8
 class MidiasController < ApplicationController
   # GET /midias
   # GET /midias.json
@@ -44,7 +45,7 @@ class MidiasController < ApplicationController
 
     respond_to do |format|
       if @midia.save
-        format.html { redirect_to @midia, notice: 'Midia was successfully created.' }
+        format.html { redirect_to @midia, notice: 'Um novo tipo de mídia foi criado com sucesso.' }
         format.json { render json: @midia, status: :created, location: @midia }
       else
         format.html { render action: "new" }
@@ -60,7 +61,7 @@ class MidiasController < ApplicationController
 
     respond_to do |format|
       if @midia.update_attributes(params[:midia])
-        format.html { redirect_to @midia, notice: 'Midia was successfully updated.' }
+        format.html { redirect_to @midia, notice: 'O tipo de mídia foi atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

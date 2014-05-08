@@ -1,3 +1,4 @@
+#encoding: utf-8
 class GenerosController < ApplicationController
   # GET /generos
   # GET /generos.json
@@ -44,7 +45,7 @@ class GenerosController < ApplicationController
 
     respond_to do |format|
       if @genero.save
-        format.html { redirect_to @genero, notice: 'Genero was successfully created.' }
+        format.html { redirect_to @genero, notice: 'Um novo gênero foi criado com sucesso.' }
         format.json { render json: @genero, status: :created, location: @genero }
       else
         format.html { render action: "new" }
@@ -60,7 +61,7 @@ class GenerosController < ApplicationController
 
     respond_to do |format|
       if @genero.update_attributes(params[:genero])
-        format.html { redirect_to @genero, notice: 'Genero was successfully updated.' }
+        format.html { redirect_to @genero, notice: 'O gênero foi atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

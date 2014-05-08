@@ -1,4 +1,4 @@
-<h1>Listing midias</h1>
+<h1>Listando mídias</h1>
 
 <table>
   <tr>
@@ -11,13 +11,13 @@
 <% @midias.each do |midia| %>
   <tr>
     <td><%= midia.nome %></td>
-    <td><%= link_to 'Show', midia %></td>
-    <td><%= link_to 'Edit', edit_midia_path(midia) %></td>
-    <td><%= link_to 'Destroy', midia, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Mostrar', midia %></td>
+    <td><%= link_to 'Editar', edit_midia_path(midia) %></td>
+    <td><%= link_to 'Apagar', midia, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Midia', new_midia_path %>
+<%= link_to 'Criar novo Midia', new_midia_path %>

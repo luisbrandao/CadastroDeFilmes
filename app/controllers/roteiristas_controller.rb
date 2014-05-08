@@ -46,7 +46,7 @@ class RoteiristasController < ApplicationController
 
     respond_to do |format|
       if @roteirista.save
-        format.html { redirect_to @roteirista, notice: 'Roteirista was successfully created.' }
+        format.html { redirect_to @roteirista, notice: 'Um novo roteirista foi criado.' }
         format.json { render json: @roteirista, status: :created, location: @roteirista }
       else
         format.html { render action: "new" }
@@ -62,7 +62,7 @@ class RoteiristasController < ApplicationController
 
     respond_to do |format|
       if @roteirista.update_attributes(params[:roteirista])
-        format.html { redirect_to @roteirista, notice: 'Roteirista was successfully updated.' }
+        format.html { redirect_to @roteirista, notice: 'O roteirista foi atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

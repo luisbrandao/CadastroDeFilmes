@@ -1,7 +1,7 @@
 <%= form_for(@roteirista) do |f| %>
   <% if @roteirista.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@roteirista.errors.count, "error") %> prohibited this roteirista from being saved:</h2>
+      <h2><%= pluralize(@roteirista.errors.count, "error") %> Não foi possível salvar este roteirista:</h2>
 
       <ul>
       <% @roteirista.errors.full_messages.each do |msg| %>

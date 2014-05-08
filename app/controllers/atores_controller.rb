@@ -46,7 +46,7 @@ class AtoresController < ApplicationController
 
     respond_to do |format|
       if @ator.save
-        format.html { redirect_to @ator, notice: 'Ator was successfully created.' }
+        format.html { redirect_to @ator, notice: 'Um novo ator foi criado com sucesso.' }
         format.json { render json: @ator, status: :created, location: @ator }
       else
         format.html { render action: "new" }
@@ -62,7 +62,7 @@ class AtoresController < ApplicationController
 
     respond_to do |format|
       if @ator.update_attributes(params[:ator])
-        format.html { redirect_to @ator, notice: 'Ator was successfully updated.' }
+        format.html { redirect_to @ator, notice: 'O ator foi atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

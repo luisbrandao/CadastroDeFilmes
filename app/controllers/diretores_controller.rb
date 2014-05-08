@@ -46,7 +46,7 @@ class DiretoresController < ApplicationController
 
     respond_to do |format|
       if @diretor.save
-        format.html { redirect_to @diretor, notice: 'Diretor was successfully created.' }
+        format.html { redirect_to @diretor, notice: 'Um novo diretor foi criado com sucesso.' }
         format.json { render json: @diretor, status: :created, location: @diretor }
       else
         format.html { render action: "new" }
@@ -62,7 +62,7 @@ class DiretoresController < ApplicationController
 
     respond_to do |format|
       if @diretor.update_attributes(params[:diretor])
-        format.html { redirect_to @diretor, notice: 'Diretor was successfully updated.' }
+        format.html { redirect_to @diretor, notice: 'O diretor foi atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

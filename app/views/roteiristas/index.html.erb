@@ -1,4 +1,4 @@
-<h1>Listing roteiristas</h1>
+<h1>Listando roteiristas</h1>
 
 <div id="search-form"> <fieldset>
   <legend>Buscar por nomes:</legend>
@@ -26,9 +26,9 @@
 <% @roteiristas.each do |roteirista| %>
   <tr>
     <td><%= roteirista.nome %></td>
-    <td><%= link_to 'Show', roteirista %></td>
-    <td><%= link_to 'Edit', edit_roteirista_path(roteirista) %></td>
-    <td><%= link_to 'Destroy', roteirista, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Mostrar', roteirista %></td>
+    <td><%= link_to 'Editar', edit_roteirista_path(roteirista) %></td>
+    <td><%= link_to 'Apagar', roteirista, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
   </tr>
 <% end %>
 </table>
@@ -36,4 +36,4 @@
 
 <br />
 
-<%= link_to 'New Roteirista', new_roteirista_path %>
+<%= link_to 'Criar novo Roteirista', new_roteirista_path %>

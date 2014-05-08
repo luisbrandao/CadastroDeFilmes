@@ -1,7 +1,7 @@
 <%= form_for(@midia) do |f| %>
   <% if @midia.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@midia.errors.count, "error") %> prohibited this midia from being saved:</h2>
+      <h2><%= pluralize(@midia.errors.count, "error") %> Não foi possível salvar essa mídia:</h2>
 
       <ul>
       <% @midia.errors.full_messages.each do |msg| %>

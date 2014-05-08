@@ -1,3 +1,4 @@
+#encoding: utf-8
 class PaisesController < ApplicationController
   # GET /paises
   # GET /paises.json
@@ -44,7 +45,7 @@ class PaisesController < ApplicationController
 
     respond_to do |format|
       if @pais.save
-        format.html { redirect_to @pais, notice: 'Pais was successfully created.' }
+        format.html { redirect_to @pais, notice: 'Um novo país foi criado com sucesso.' }
         format.json { render json: @pais, status: :created, location: @pais }
       else
         format.html { render action: "new" }
@@ -60,7 +61,7 @@ class PaisesController < ApplicationController
 
     respond_to do |format|
       if @pais.update_attributes(params[:pais])
-        format.html { redirect_to @pais, notice: 'Pais was successfully updated.' }
+        format.html { redirect_to @pais, notice: 'O país foi atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
