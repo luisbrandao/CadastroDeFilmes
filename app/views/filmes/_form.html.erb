@@ -20,56 +20,63 @@
     <%= f.text_field :titulorg %>
   </div>
 
-  <%= hidden_field_tag 'filme[ator_ids][]', '' %>
-  <%= f.label :atores, "Atores" %><br />
-  <% @ator.each do |ator| %>
-    <div>
-      <%= check_box_tag "filme[ator_ids][]", ator.id, @filme.atores.include?(ator) %>
-      <%= ator.nome %>
+  <div class="field"; style="width: 600px;">
+    <div style="float: left; width: 200px;">
+      <%= f.label :genero_id, "Genero" %><br />
+      <%= collection_select(:filme, :genero_id, Genero.order('nome'), :id, :nome, { :prompt => "Selecione um genero" } ) %>
     </div>
-  <% end %>
-
-  <%= hidden_field_tag 'filme[diretor_ids][]', '' %>
-  <%= f.label :diretores, "Diretores" %><br />
-  <% @diretor.each do |diretor| %>
-    <div>
-      <%= check_box_tag "filme[diretor_ids][]", diretor.id, @filme.diretores.include?(diretor) %>
-      <%= diretor.nome %>
+    <div style="float: left; width: 200px;">
+      <%= f.label :midia_id, "Mídia" %><br />
+      <%= collection_select(:filme, :midia_id, Midia.order('nome'), :id, :nome, { :prompt => "Selecione a mídia " } ) %>
     </div>
-  <% end %>
+    <div style="float: left; width: 200px;">
+      <%= f.label :pais_id, "País" %><br />
+      <%= collection_select(:filme, :pais_id, Pais.order('nome'), :id, :nome, { :prompt => "Selecione o pais " } ) %>
+    </div>
+    <br style="clear: left;" />
+  </div>
 
-  <div class="field">
-    <%= f.label :anoF, "Ano de Realização" %><br />
-    <%= f.number_field :anoF, :value => "2014" %>
+  <div class="field"; style="width: 600px;">
+    <div style="float: left; width: 300px;">
+      <%= f.label :atores, "Atores" %><br />
+      <%= f.select :ator_ids, options_for_select(@ator.collect {|ator| [ ator.nome, ator.id ]}, :selected => @filme.ator_ids), {},  {:multiple => true, :style => "width:295px;", :size => 15  } %>
+    </div>
+
+    <div style="float: left; width: 300px;">
+      <%= f.label :diretores, "Diretores" %><br />
+      <%= f.select :diretor_ids, options_for_select(@diretor.collect {|d| [ d.nome, d.id ]}, :selected => @filme.diretor_ids), {},  {:multiple => true, :style => "width:295px;", :size => 15  } %>
+    </div>
+    <br style="clear: left;" />
   </div>
-  <div class="field">
-    <%= f.label :cor %><br />
-    <%= f.check_box :cor %>
+
+  <div style="width: 600px;">
+    <div style="float: left; width: 300px;">
+      <%= f.label :anoF, "Ano de Realização" %><br />
+      <%= f.number_field :anoF, :value => "2014" %>
+    </div>
+    <div style="float: left; width: 300px;">
+      <%= f.label :cor %><br />
+      <%= f.check_box :cor %>
+    </div>
+    <br style="clear: left;" />
   </div>
-  <div class="field">
-    <%= f.label :genero_id, "Genero" %><br />
-    <%= collection_select(:filme, :genero_id, Genero.order('nome'), :id, :nome, { :prompt => "Selecione um genero" } ) %>
+
+  <div style="width: 563px;">
+    <div style="float: left; width: 300px;">
+      <%= f.label :dataA, "Data de assistencia" %><br />
+      <%= f.text_field :dataA, :class => "search-field" %>
+    </div>
+    <div style="float: left; width: 163px;">
+      <%= f.label :anoA, "Ano de assistencia" %><br />
+      <%= f.number_field :anoA, :value => Time.now.year %>
+    </div>
+    <div style="float: left; width: 100px;">
+      <%= f.label :cotacao %><br />
+      <%= f.number_field :cotacao %>
+    </div>
+    <br style="clear: left;" />
   </div>
-  <div class="field">
-    <%= f.label :dataA, "Data de assistencia" %><br />
-    <%= f.text_field :dataA, :class => "search-field" %>
-  </div>
-  <div class="field">
-    <%= f.label :anoA, "Ano de assistencia" %><br />
-    <%= f.number_field :anoA, :value => Time.now.year %>
-  </div>
-  <div class="field">
-    <%= f.label :midia_id, "Mídia" %><br />
-    <%= collection_select(:filme, :midia_id, Midia.order('nome'), :id, :nome, { :prompt => "Selecione a mídia " } ) %>
-  </div>
-  <div class="field">
-    <%= f.label :cotacao %><br />
-    <%= f.number_field :cotacao %>
-  </div>
-  <div class="field">
-    <%= f.label :pais_id, "País" %><br />
-    <%= collection_select(:filme, :pais_id, Pais.order('nome'), :id, :nome, { :prompt => "Selecione o pais " } ) %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
