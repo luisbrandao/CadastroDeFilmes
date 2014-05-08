@@ -15,6 +15,39 @@
   <%= @filme.titulorg %>
 </p>
 
+
+<div style="width: 600px;">
+  <div style="float: left; width: 300px;">
+    <b>Atores:</b>
+    <ul>
+      <% @filme.atores.each do |ator| %>
+      <li> <%= ator.nome %> </li>
+      <% end %>
+    </ul>
+  </div>
+  <div style="float: left; width: 300px;">
+    <b>Diretores:</b>
+    <ul>
+      <% @filme.diretores.each do |diretor| %>
+      <li> <%= diretor.nome %> </li>
+      <% end %>
+    </ul>
+  </div>
+  <br style="clear: left;" />
+</div>
+
+<div style="width: 600px;">
+  <div style="float: left; width: 300px;">
+    <b>Data de assistencia:</b>
+    <%= @filme.dataA ? @filme.dataA.strftime("%d/%m/%Y") : nil %>
+  </div>
+  <div style="float: left; width: 300px;">
+    <b>Ano de assistencia:</b>
+    <%= @filme.anoA %>
+  </div>
+  <br style="clear: left;" />
+</div>
+
 <p>
   <b>Ano do filme:</b>
   <%= @filme.anoF %>
@@ -22,22 +55,12 @@
 
 <p>
   <b>Cor:</b>
-  <%= @filme.cor %>
+  <%= @filme.cor? ? 'Colorido' : 'Preto e branco' %>
 </p>
 
 <p>
   <b>Genero:</b>
   <%= @filme.genero.try(:nome) %>
-</p>
-
-<p>
-  <b>Data de assistencia:</b>
-  <%= @filme.dataA ? @filme.dataA.strftime("%d/%m/%Y") : nil %>
-</p>
-
-<p>
-  <b>Ano de assistencia:</b>
-  <%= @filme.anoA %>
 </p>
 
 <p>

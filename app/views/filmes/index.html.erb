@@ -1,9 +1,11 @@
-<h1>Listing filmes</h1>
+<h1>Listando Filmes</h1>
 
 <table>
   <tr>
     <th>Título</th>
     <th>Título Original</th>
+    <th>Atores</th>
+    <th>Diretores</th>
     <th>Ano do filme</th>
     <th>Cor</th>
     <th>Genero</th>
@@ -19,8 +21,18 @@
   <tr>
     <td><%= filme.titulo %></td>
     <td><%= filme.titulorg %></td>
-    <td><%= filme.anoF %></td>
-    <td><%= filme.cor %></td>
+    <td><ul>
+        <% filme.atores.each do |ator| %>
+          <li> <%= ator.nome %> </li>
+        <% end %>
+     </td></ul>
+    <td><ul>
+          <% filme.diretores.each do |diretor| %>
+          <li> <%= diretor.nome %> </li>
+        <% end %>
+    </td></ul>
+    <td><%= filme.anoF %>
+    <td><%= filme.cor? ? 'Colorido' : 'Preto e branco' %></td>
     <td><%= filme.genero.try(:nome) %></td>
     <td><%= filme.dataA ? filme.dataA.strftime("%d/%m/%Y") : nil %></td>
     <td><%= filme.anoA %></td>
@@ -36,4 +48,4 @@
 
 <br />
 
-<%= link_to 'New Filme', new_filme_path %>
+<%= link_to 'Novo Filme', new_filme_path %>
