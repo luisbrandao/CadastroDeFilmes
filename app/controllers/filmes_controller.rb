@@ -50,7 +50,7 @@ class FilmesController < ApplicationController
 
     respond_to do |format|
       if @filme.save
-        format.html { redirect_to @filme, notice: 'Filme was successfully created.' }
+        format.html { redirect_to @filme, notice: 'Um novo filme foi criado com sucesso.' }
         format.json { render json: @filme, status: :created, location: @filme }
       else
         format.html { render action: "new" }
@@ -66,7 +66,7 @@ class FilmesController < ApplicationController
 
     respond_to do |format|
       if @filme.update_attributes(params[:filme])
-        format.html { redirect_to @filme, notice: 'Filme was successfully updated.' }
+        format.html { redirect_to @filme, notice: 'O filme foi atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
