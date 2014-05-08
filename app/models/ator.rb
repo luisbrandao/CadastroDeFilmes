@@ -3,6 +3,9 @@ class Ator < ActiveRecord::Base
 
   attr_accessible :id, :nome, :sexo
 
+  validates :nome, uniqueness: true, presence: true
+  validates :sexo, presence: true
+
   def sexo_txt
     ["", "Masculino", "Feminino"][self.sexo - 1]
   end

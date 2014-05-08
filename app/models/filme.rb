@@ -9,4 +9,6 @@ class Filme < ActiveRecord::Base
 
   attr_accessible :id, :anoA, :anoF, :cor, :cotacao, :dataA, :genero_id, :midia_id, :pais_id, :titulo, :titulorg
   attr_accessible :ator_ids, :diretor_ids
+
+  validates :nome, presence: true
 end
