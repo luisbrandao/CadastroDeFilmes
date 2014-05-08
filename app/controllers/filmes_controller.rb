@@ -2,7 +2,8 @@ class FilmesController < ApplicationController
   # GET /filmes
   # GET /filmes.json
   def index
-    @filmes = Filme.all
+    @search = Filme.search(params[:q])
+    @filmes = @search.result
 
     respond_to do |format|
       format.html # index.html.erb

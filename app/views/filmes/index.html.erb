@@ -1,5 +1,55 @@
 <h1>Listando Filmes</h1>
 
+<div id="search-form"> <fieldset>
+  <legend>Buscar por nomes:</legend>
+  <%= search_form_for @search do |f| %>
+    <div class="field">
+      <%= f.label :titulo, "Titulo: " %><br />
+      <%= f.text_field :titulo_cont, :class => "search-field"%>
+    </div>
+    <div class="field">
+      <%= f.label :titulorg, "Título Original: " %><br />
+      <%= f.text_field :titulorg_cont, :class => "search-field"%>
+    </div>
+    <div class="field">
+      <%= f.label :atores_id_eq, "Atores:" %><br />
+      <%= f.collection_select :atores_id_eq, Ator.order(:nome), :id, :nome, :include_blank => "Todos" %>
+    </div>
+    <div class="field">
+      <%= f.label :Diretores_id_eq, "Diretores:" %><br />
+      <%= f.collection_select :diretores_id_eq, Diretor.order(:nome), :id, :nome, :include_blank => "Todos" %>
+    </div>
+    <div class="field">
+      <%= f.label :anoF, "Ano do filme: " %><br />
+      <%= f.number_field :anoF_cont, :class => "search-field"%>
+    </div>
+    <div class="field">
+      <%= f.label :anoA, "Ano da assistencia: " %><br />
+      <%= f.number_field :anoA_cont, :class => "search-field"%>
+    </div>
+    <div class="field">
+      <%= f.label :cor, "Cor" %><br />
+      <%= f.select :cor_eq, [["Colorido", true], ["Preto e branco", false]], :include_blank => "Todos", :class => "search-field" %>
+    </div>
+    <div class="field">
+      <%= f.label :genero_id_eq, "Genero:" %><br />
+      <%= f.collection_select :genero_id_eq, Genero.order(:nome), :id, :nome, :include_blank => "Todos" %>
+    </div>
+    <div class="field">
+      <%= f.label :Midia_id_eq, "Mídia:" %><br />
+      <%= f.collection_select :midia_id_eq, Midia.order(:nome), :id, :nome, :include_blank => "Todos" %>
+    </div>
+    <div class="field">
+      <%= f.label :paises_id_eq, "País:" %><br />
+      <%= f.collection_select :pais_id_eq, Pais.order(:nome), :id, :nome, :include_blank => "Todos" %>
+    </div>
+	<div class="actions">
+	  <%= f.submit "Buscar" %>
+    <%= f.submit "Limpar campos",  :id => :reset_btn  %>
+	</div>
+  <% end %>
+</fieldset> </div>
+
 <table>
   <tr>
     <th>Título</th>
