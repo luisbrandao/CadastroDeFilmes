@@ -31,16 +31,31 @@ rails generate migration add_sexo_to_atores sexo:integer
     inflect.irregular 'midia', 'midias'
   end
 
-Filmes:
-  Titulo                titulo:string
-  Titulo Original       titulorg:string
-  Ano de Realização     anoF:integer
-  Diretor               diretor_id:integer
-  Roteiro               roteiro:integer
-  Cor                   cor:boolean
-  Gênero                genero_id:integer
-  Data de Assistencia   dataA:date
-  Ano de Assistência    anoA:integer
-  Midia                 midia_id:integer
-  Cotação               cotacao:integer
-  País                  pais_id:integer
+
+
+
+
+# Divs paralelos:
+  <div style="width: 500px;">
+    <div style="float: left; width: 200px;">
+
+    </div>
+    <div style="float: left; width: 100px;">
+
+    </div>
+    <div style="float: left; width: 200px;">
+
+    </div>
+    <br style="clear: left;" />
+  </div>
+
+
+  <div style="width: 600px;">
+    <div style="float: left; width: 300px;">
+
+    </div>
+    <div style="float: left; width: 300px;">
+
+    </div>
+    <br style="clear: left;" />
+  </div>
