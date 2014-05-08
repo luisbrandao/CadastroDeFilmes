@@ -2,7 +2,9 @@ class DiretoresController < ApplicationController
   # GET /diretores
   # GET /diretores.json
   def index
-    @diretores = Diretor.all
+    @search = Diretor.search(params[:q])
+    @diretores = @search.result
+      .paginate(page: params[:page], per_page: 100)
 
     respond_to do |format|
       format.html # index.html.erb

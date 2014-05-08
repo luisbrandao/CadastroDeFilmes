@@ -2,7 +2,9 @@ class RoteiristasController < ApplicationController
   # GET /roteiristas
   # GET /roteiristas.json
   def index
-    @roteiristas = Roteirista.all
+    @search = Roteirista.search(params[:q])
+    @roteiristas = @search.result
+      .paginate(page: params[:page], per_page: 100)
 
     respond_to do |format|
       format.html # index.html.erb

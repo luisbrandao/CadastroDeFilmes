@@ -4,6 +4,7 @@ class FilmesController < ApplicationController
   def index
     @search = Filme.search(params[:q])
     @filmes = @search.result
+      .paginate(page: params[:page], per_page: 100)
 
     respond_to do |format|
       format.html # index.html.erb

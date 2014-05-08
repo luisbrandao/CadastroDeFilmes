@@ -50,7 +50,8 @@
   <% end %>
 </fieldset> </div>
 
-<table>
+<%= page_entries_info @filmes %>
+<table style=width:100%>
   <tr>
     <th>Título</th>
     <th>Título Original</th>
@@ -95,6 +96,7 @@
   </tr>
 <% end %>
 </table>
+<%= will_paginate @filmes %>
 
 <br />
 

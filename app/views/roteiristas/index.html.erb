@@ -1,5 +1,20 @@
 <h1>Listing roteiristas</h1>
 
+<div id="search-form"> <fieldset>
+  <legend>Buscar por nomes:</legend>
+  <%= search_form_for @search do |f| %>
+    <div class="field">
+      <%= f.label :nome, "Nome: " %><br />
+      <%= f.text_field :nome_cont, :class => "search-field"%>
+    </div>
+	<div class="actions">
+	  <%= f.submit "Buscar" %>
+    <%= f.submit "Limpar campos",  :id => :reset_btn  %>
+	</div>
+  <% end %>
+</fieldset> </div>
+
+<%= page_entries_info @roteiristas %>
 <table>
   <tr>
     <th>Nome</th>
@@ -17,6 +32,7 @@
   </tr>
 <% end %>
 </table>
+<%= will_paginate @roteiristas %>
 
 <br />
 

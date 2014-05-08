@@ -2,7 +2,9 @@ class AtoresController < ApplicationController
   # GET /atores
   # GET /atores.json
   def index
-    @atores = Ator.all
+    @search = Ator.search(params[:q])
+    @atores = @search.result
+      .paginate(page: params[:page], per_page: 100)
 
     respond_to do |format|
       format.html # index.html.erb
