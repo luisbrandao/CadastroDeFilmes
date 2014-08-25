@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.18'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -22,6 +22,10 @@ gem 'seed_dumper'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+end
+
+# Puma for development
+group :development do
   gem 'puma'
 end
 
