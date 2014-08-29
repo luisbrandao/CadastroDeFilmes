@@ -1,37 +1,23 @@
 class DiretoresController < ApplicationController
+  before_action :set_diretor, only: [:show, :edit, :update, :destroy]
   # GET /diretores
   # GET /diretores.json
   def index
     @search = Diretor.search(params[:q])
     @diretores = @search.result
       .paginate(page: params[:page], per_page: 100)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @diretores }
-    end
   end
 
   # GET /diretores/1
   # GET /diretores/1.json
   def show
     @diretor = Diretor.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @diretor }
-    end
   end
 
   # GET /diretores/new
   # GET /diretores/new.json
   def new
     @diretor = Diretor.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @diretor }
-    end
   end
 
   # GET /diretores/1/edit
@@ -42,7 +28,7 @@ class DiretoresController < ApplicationController
   # POST /diretores
   # POST /diretores.json
   def create
-    @diretor = Diretor.new(params[:diretor])
+    @diretor = Diretor.new(diretor_params)
 
     respond_to do |format|
       if @diretor.save
@@ -58,10 +44,8 @@ class DiretoresController < ApplicationController
   # PUT /diretores/1
   # PUT /diretores/1.json
   def update
-    @diretor = Diretor.find(params[:id])
-
     respond_to do |format|
-      if @diretor.update_attributes(params[:diretor])
+      if @diretor.update_attributes(diretor_params)
         format.html { redirect_to @diretor, notice: 'O diretor foi atualizado com sucesso.' }
         format.json { head :no_content }
       else
@@ -74,7 +58,6 @@ class DiretoresController < ApplicationController
   # DELETE /diretores/1
   # DELETE /diretores/1.json
   def destroy
-    @diretor = Diretor.find(params[:id])
     @diretor.destroy
 
     respond_to do |format|
@@ -82,4 +65,15 @@ class DiretoresController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_diretor
+      @diretor = Diretor.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def diretor_params
+      params.require(:diretor).permit(:nome)
+    end
 end

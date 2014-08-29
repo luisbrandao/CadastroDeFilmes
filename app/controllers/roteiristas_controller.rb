@@ -1,37 +1,23 @@
 class RoteiristasController < ApplicationController
+  before_action :set_roteirista, only: [:show, :edit, :update, :destroy]
   # GET /roteiristas
   # GET /roteiristas.json
   def index
     @search = Roteirista.search(params[:q])
     @roteiristas = @search.result
       .paginate(page: params[:page], per_page: 100)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @roteiristas }
-    end
   end
 
   # GET /roteiristas/1
   # GET /roteiristas/1.json
   def show
     @roteirista = Roteirista.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @roteirista }
-    end
   end
 
   # GET /roteiristas/new
   # GET /roteiristas/new.json
   def new
     @roteirista = Roteirista.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @roteirista }
-    end
   end
 
   # GET /roteiristas/1/edit
@@ -42,7 +28,7 @@ class RoteiristasController < ApplicationController
   # POST /roteiristas
   # POST /roteiristas.json
   def create
-    @roteirista = Roteirista.new(params[:roteirista])
+    @roteirista = Roteirista.new(roteirista_params)
 
     respond_to do |format|
       if @roteirista.save
@@ -58,10 +44,8 @@ class RoteiristasController < ApplicationController
   # PUT /roteiristas/1
   # PUT /roteiristas/1.json
   def update
-    @roteirista = Roteirista.find(params[:id])
-
     respond_to do |format|
-      if @roteirista.update_attributes(params[:roteirista])
+      if @roteirista.update_attributes(roteirista_params)
         format.html { redirect_to @roteirista, notice: 'O roteirista foi atualizado com sucesso.' }
         format.json { head :no_content }
       else
@@ -74,7 +58,6 @@ class RoteiristasController < ApplicationController
   # DELETE /roteiristas/1
   # DELETE /roteiristas/1.json
   def destroy
-    @roteirista = Roteirista.find(params[:id])
     @roteirista.destroy
 
     respond_to do |format|
@@ -82,4 +65,16 @@ class RoteiristasController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+    # Use callbacks to share common setup or constraints between actions.
+    def set_roteirista
+      @roteirista = Roteirista.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def roteirista_params
+      params.require(:roteirista).permit(:nome)
+    end
 end

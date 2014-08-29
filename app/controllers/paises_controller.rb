@@ -1,36 +1,22 @@
 #encoding: utf-8
 class PaisesController < ApplicationController
+  before_action :set_pais, only: [:show, :edit, :update, :destroy]
   # GET /paises
   # GET /paises.json
   def index
     @paises = Pais.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @paises }
-    end
   end
 
   # GET /paises/1
   # GET /paises/1.json
   def show
     @pais = Pais.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @pais }
-    end
   end
 
   # GET /paises/new
   # GET /paises/new.json
   def new
     @pais = Pais.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @pais }
-    end
   end
 
   # GET /paises/1/edit
@@ -41,7 +27,7 @@ class PaisesController < ApplicationController
   # POST /paises
   # POST /paises.json
   def create
-    @pais = Pais.new(params[:pais])
+    @pais = Pais.new(pais_params)
 
     respond_to do |format|
       if @pais.save
@@ -57,10 +43,8 @@ class PaisesController < ApplicationController
   # PUT /paises/1
   # PUT /paises/1.json
   def update
-    @pais = Pais.find(params[:id])
-
     respond_to do |format|
-      if @pais.update_attributes(params[:pais])
+      if @pais.update_attributes(pais_params)
         format.html { redirect_to @pais, notice: 'O país foi atualizado com sucesso.' }
         format.json { head :no_content }
       else
@@ -73,7 +57,6 @@ class PaisesController < ApplicationController
   # DELETE /paises/1
   # DELETE /paises/1.json
   def destroy
-    @pais = Pais.find(params[:id])
     @pais.destroy
 
     respond_to do |format|
@@ -81,4 +64,16 @@ class PaisesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+    # Use callbacks to share common setup or constraints between actions.
+    def set_pais
+      @pais = Pais.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def pais_params
+      params.require(:pais).permit(:nome)
+    end
 end

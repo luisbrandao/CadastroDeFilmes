@@ -1,26 +1,17 @@
 class FilmesController < ApplicationController
+  before_action :set_filme, only: [:show, :edit, :update, :destroy]
   # GET /filmes
   # GET /filmes.json
   def index
     @search = Filme.search(params[:q])
     @filmes = @search.result
       .paginate(page: params[:page], per_page: 100)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @filmes }
-    end
   end
 
   # GET /filmes/1
   # GET /filmes/1.json
   def show
     @filme = Filme.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @filme }
-    end
   end
 
   # GET /filmes/new
@@ -29,11 +20,6 @@ class FilmesController < ApplicationController
     @filme = Filme.new
     @diretor = Diretor.order('nome')
     @ator = Ator.order('nome')
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @filme }
-    end
   end
 
   # GET /filmes/1/edit
@@ -46,7 +32,7 @@ class FilmesController < ApplicationController
   # POST /filmes
   # POST /filmes.json
   def create
-    @filme = Filme.new(params[:filme])
+    @filme = Filme.new(filme_params)
     @diretor = Diretor.order('nome')
     @ator = Ator.order('nome')
 
@@ -64,10 +50,11 @@ class FilmesController < ApplicationController
   # PUT /filmes/1
   # PUT /filmes/1.json
   def update
-    @filme = Filme.find(params[:id])
+    @diretor = Diretor.order('nome')
+    @ator = Ator.order('nome')
 
     respond_to do |format|
-      if @filme.update_attributes(params[:filme])
+      if @filme.update_attributes(filme_params)
         format.html { redirect_to @filme, notice: 'O filme foi atualizado com sucesso.' }
         format.json { head :no_content }
       else
@@ -80,7 +67,6 @@ class FilmesController < ApplicationController
   # DELETE /filmes/1
   # DELETE /filmes/1.json
   def destroy
-    @filme = Filme.find(params[:id])
     @filme.destroy
 
     respond_to do |format|
@@ -88,4 +74,15 @@ class FilmesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_filme
+      @filme = Filme.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def filme_params
+      params.require(:filme).permit(:id, :anoA, :anoF, :cor, :cotacao, :dataA, :genero_id, :midia_id, :pais_id, :titulo, :titulorg, :ator_ids => [], :diretor_ids => [])
+    end
 end

@@ -1,36 +1,22 @@
 #encoding: utf-8
 class GenerosController < ApplicationController
+  before_action :set_genero, only: [:show, :edit, :update, :destroy]
   # GET /generos
   # GET /generos.json
   def index
     @generos = Genero.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @generos }
-    end
   end
 
   # GET /generos/1
   # GET /generos/1.json
   def show
     @genero = Genero.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @genero }
-    end
   end
 
   # GET /generos/new
   # GET /generos/new.json
   def new
     @genero = Genero.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @genero }
-    end
   end
 
   # GET /generos/1/edit
@@ -41,7 +27,7 @@ class GenerosController < ApplicationController
   # POST /generos
   # POST /generos.json
   def create
-    @genero = Genero.new(params[:genero])
+    @genero = Genero.new(genero_params)
 
     respond_to do |format|
       if @genero.save
@@ -57,10 +43,8 @@ class GenerosController < ApplicationController
   # PUT /generos/1
   # PUT /generos/1.json
   def update
-    @genero = Genero.find(params[:id])
-
     respond_to do |format|
-      if @genero.update_attributes(params[:genero])
+      if @genero.update_attributes(genero_params)
         format.html { redirect_to @genero, notice: 'O gênero foi atualizado com sucesso.' }
         format.json { head :no_content }
       else
@@ -73,7 +57,6 @@ class GenerosController < ApplicationController
   # DELETE /generos/1
   # DELETE /generos/1.json
   def destroy
-    @genero = Genero.find(params[:id])
     @genero.destroy
 
     respond_to do |format|
@@ -81,4 +64,15 @@ class GenerosController < ApplicationController
       format.json { head :no_content }
     end
   end
+  private
+
+    # Use callbacks to share common setup or constraints between actions.
+    def set_genero
+      @genero = Genero.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def genero_params
+      params.require(:genero).permit(:nome)
+    end
 end

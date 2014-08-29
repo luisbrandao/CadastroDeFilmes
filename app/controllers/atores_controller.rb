@@ -1,37 +1,23 @@
 class AtoresController < ApplicationController
+  before_action :set_ator, only: [:show, :edit, :update, :destroy]
   # GET /atores
   # GET /atores.json
   def index
     @search = Ator.search(params[:q])
     @atores = @search.result
       .paginate(page: params[:page], per_page: 100)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @atores }
-    end
   end
 
   # GET /atores/1
   # GET /atores/1.json
   def show
     @ator = Ator.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @ator }
-    end
   end
 
   # GET /atores/new
   # GET /atores/new.json
   def new
     @ator = Ator.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @ator }
-    end
   end
 
   # GET /atores/1/edit
@@ -42,7 +28,7 @@ class AtoresController < ApplicationController
   # POST /atores
   # POST /atores.json
   def create
-    @ator = Ator.new(params[:ator])
+    @ator = Ator.new(ator_params)
 
     respond_to do |format|
       if @ator.save
@@ -58,10 +44,8 @@ class AtoresController < ApplicationController
   # PUT /atores/1
   # PUT /atores/1.json
   def update
-    @ator = Ator.find(params[:id])
-
     respond_to do |format|
-      if @ator.update_attributes(params[:ator])
+      if @ator.update_attributes(ator_params)
         format.html { redirect_to @ator, notice: 'O ator foi atualizado com sucesso.' }
         format.json { head :no_content }
       else
@@ -74,7 +58,6 @@ class AtoresController < ApplicationController
   # DELETE /atores/1
   # DELETE /atores/1.json
   def destroy
-    @ator = Ator.find(params[:id])
     @ator.destroy
 
     respond_to do |format|
@@ -82,4 +65,16 @@ class AtoresController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+    # Use callbacks to share common setup or constraints between actions.
+    def set_ator
+      @ator = Ator.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def ator_params
+      params.require(:ator).permit(:nome, :sexo)
+    end
 end
