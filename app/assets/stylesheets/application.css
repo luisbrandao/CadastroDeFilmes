@@ -68,8 +68,8 @@ a:hover {
   clear: both;
 }
 #header, #about, #getting-started {
-  padding-left: 75px;
-  padding-right: 30px;
+  padding: 5px;
+  padding-left: 50px;
 }
 #header {
   height: 64px;
